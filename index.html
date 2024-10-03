@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-');
+  </script> -->
+
+  <meta charset="utf-8">
+  <meta name="author" content="Zeyu Feng">
+  <meta name="description" content="Data-driven offline hierarchical RL for LTL">
+  <meta name="keywords" content="Reinforcement Learning, Option, LTL, Diffusion Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <article class="post-content">
+    <meta name="twitter:title" content="Diffusion Meets Options: Hierarchical Generative Skill Composition for Temporally-Extended Tasks"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://philiptheother.github.io/doppler/images/doppler.png" />
+  <article class="post-content">
+
+  <title>Diffusion Meets Options: Hierarchical Generative Skill Composition for Temporally-Extended Tasks</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/clearlab_c.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://philiptheother.github.io/doppler">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/clear-nus/ltldog">
+              LTLDoG
+            </a>
+            <!-- <a class="navbar-item" href="https://github.com/clear-nus/">
+              Diffusion
+            </a> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Diffusion Meets Options: Hierarchical Generative Skill Composition for Temporally-Extended Tasks</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=l-Ob1vAAAAAJ&hl=en/">Zeyu Feng</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://edmundluan.github.io/">Hao Luan</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=_6xM_IcAAAAJ&hl=en">Kevin Yuchen Ma</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://haroldsoh.com/">Harold Soh</a> <sup>1,2</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>
+                <a href="https://clear-nus.github.io/">Department of Computer Science, School of Computing, National University of Singapore
+              </span></a>
+              <span class="author-block"><sup>2</sup>
+                Smart Systems Institute, National University of Singapore
+              </span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="./files/DOPPLER.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Arxiv Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://www.youtube.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1jRfJtiBL-cYcFbmQczzVGXK8THSp--en/view"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+
+        <video id="teaser" autoplay controls muted loop playsinline height="100%">
+          <source src="./videos/doppler.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <strong>DOPPLER</strong> generates receding-horizon plans for long-horizon LTL specifications, offering robust performance even in the face of environmental perturbations.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Safe and successful deployment of robots requires not only the ability to generate complex plans but also the capacity to frequently replan and correct execution errors. This paper addresses the challenge of long-horizon trajectory planning under temporally extended objectives in a receding horizon manner. To this end, we propose <strong>DOPPLER</strong>, a data-driven hierarchical framework that generates and updates plans based on instruction specified by linear temporal logic (LTL). Our method decomposes temporal tasks into chain of options with hierarchical reinforcement learning from offline non-expert datasets. It leverages diffusion models to generate options with low-level actions. We devise a determinantal-guided posterior sampling technique during batch generation, which improves the speed and diversity of diffusion generated options, leading to more efficient querying. Experiments on robot navigation and manipulation tasks demonstrate that <strong>DOPPLER</strong> can generate sequences of trajectories that progressively satisfy the specified formulae for obstacle avoidance and sequential visitation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/???" frameborder="0" allow="autoplay; encrypted-media"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Figure -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content">
+            <img src="images/doppler.png" width=75%>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content has-text-justified">
+            <p style="width: 80%">
+              <strong>DOPPLER</strong> (Diffusion Option Planning by Progressing LTLs for Effective Receding-horizon control) is an offline hierarchical reinforcement learning framework that generates receding horizon trajectories to satisfy given LTL instructions. It leverages diffusion models to represent options within the hierarchical RL framework, and can generate diverse and expressive behaviors while ensuring that the generated trajectories remain within the support of the offline dataset.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">DOPPLER</h2> -->
+          <!-- result -->
+           
+          <!--/ result -->
+        <!-- </div>
+      </div> -->
+
+      <!-- Concurrent Work. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Related Links</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              <a href="https://diffusion-policy.cs.columbia.edu/">Diffusion Policy
+              </a>
+            </p>
+            <p>
+              Baseline <a href="https://github.com/lllyasviel/ControlNet">LTLDoG</a>
+            </p>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Concurrent Work. -->
+
+    <!-- </div>
+  </section> -->
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{10637680,
+    title   = {{LTLDoG}: Satisfying Temporally-Extended Symbolic Constraints for Safe Diffusion-Based Planning},
+    author  = {Feng, Zeyu and Luan, Hao and Goyal, Pranav and Soh, Harold},
+    journal = {IEEE Robotics and Automation Letters},
+    year    = {2024},
+    volume  = {9},
+    number  = {10},
+    pages   = {8571-8578},
+    doi     = {10.1109/LRA.2024.3443501},
+  }</code></pre>
+      <pre><code>@article{feng2024doppler,
+    title   = {Diffusion Meets Options: Hierarchical Generative Skill Composition for Temporally-Extended Tasks},
+    author  = {Feng, Zeyu and Luan, Hao and Ma, Kevin Yuchen and Soh, Harold},
+    journal = {arXiv preprint},
+    year    = {2024}
+  }</code></pre>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./files/DOPPLER.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/philiptheother" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a
+                href="https://github.com/philiptheother/doppler">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
