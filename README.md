@@ -1,14 +1,19 @@
 # DOPPLER
 
-This is the repository that contains source code for the [DOPPLER website](philiptheother.github.io/doppler/).
+This is the repository that contains source code for the [DOPPLER website](https://philiptheother.github.io/doppler/).
 
 If you find DOPPLER useful for your work please cite:
 ```
-@article{feng2024doppler
+@INPROCEEDINGS{feng2025doppler
   author    = {Feng, Zeyu and Luan, Hao and Ma, Kevin Yuchen and Soh, Harold},
+  booktitle = {2025 IEEE International Conference on Robotics and Automation (ICRA)}, 
   title     = {Diffusion Meets Options: Hierarchical Generative Skill Composition for Temporally-Extended Tasks},
-  journal   = {arXiv preprint},
-  year      = {2024},
+  year      = {2025},
+  volume    = {},
+  number    = {},
+  pages     = {},
+  keywords  = {},
+  doi       = {},
 }
 ```
 
