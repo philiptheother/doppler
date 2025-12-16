@@ -11,9 +11,8 @@ If you find DOPPLER useful for your work please cite:
   year      = {2025},
   volume    = {},
   number    = {},
-  pages     = {},
-  keywords  = {},
-  doi       = {},
+  pages     = {10854-10860},
+  doi       = {10.1109/ICRA55743.2025.11127641}
 }
 ```
 
